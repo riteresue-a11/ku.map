@@ -1,0 +1,214 @@
+:root {
+  --bg: #f5f7fb;
+  --panel: #ffffff;
+  --line: #d7ddea;
+  --text: #1e293b;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --accent-soft: #dbeafe;
+  --shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(180deg, #eef4ff 0%, var(--bg) 220px);
+  color: var(--text);
+}
+
+.hero {
+  padding: 48px 20px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.lead {
+  margin: 14px 0 0;
+  max-width: 720px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 20px;
+}
+
+.map-card,
+.info-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+.card-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.card-head h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.card-head p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.campus-map {
+  position: relative;
+  min-height: 460px;
+  border-radius: 18px;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(37, 99, 235, 0.08) 1px, transparent 1px) 0 0 / 48px 48px,
+    linear-gradient(rgba(37, 99, 235, 0.08) 1px, transparent 1px) 0 0 / 48px 48px,
+    linear-gradient(135deg, #f8fbff, #edf4ff);
+  border: 1px solid #dbe6ff;
+}
+
+.campus-map::before,
+.campus-map::after {
+  content: "";
+  position: absolute;
+  background: #cbd5e1;
+  opacity: 0.9;
+}
+
+.campus-map::before {
+  width: 100%;
+  height: 14px;
+  top: 45%;
+  left: 0;
+}
+
+.campus-map::after {
+  width: 14px;
+  height: 100%;
+  left: 56%;
+  top: 0;
+}
+
+.spot {
+  position: absolute;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 14px;
+  background: white;
+  color: var(--text);
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.14);
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.spot:hover,
+.spot:focus-visible {
+  transform: translateY(-2px) scale(1.02);
+  outline: none;
+}
+
+.spot.active {
+  background: var(--accent);
+  color: white;
+}
+
+.spot-cafe { top: 20%; left: 18%; }
+.spot-library { top: 18%; right: 16%; }
+.spot-building { bottom: 22%; left: 20%; }
+.spot-gym { bottom: 18%; right: 18%; }
+.spot-office { top: 48%; left: 52%; transform: translate(-50%, -50%); }
+
+.spot-office:hover,
+.spot-office:focus-visible {
+  transform: translate(-50%, -52%) scale(1.02);
+}
+
+.spot-office.active {
+  transform: translate(-50%, -50%);
+}
+
+.sections {
+  display: block;
+}
+
+.info-section {
+  display: none;
+  border: 1px dashed var(--line);
+  border-radius: 16px;
+  padding: 20px;
+  min-height: 260px;
+  background: #fbfdff;
+}
+
+.info-section.active {
+  display: block;
+}
+
+.info-section h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.35rem;
+}
+
+.placeholder {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+@media (max-width: 860px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .campus-map {
+    min-height: 380px;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero {
+    padding-top: 32px;
+  }
+
+  .map-card,
+  .info-card {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .spot {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+}
