@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>キャンパスマップ MVP</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">Campus Map MVP</p>
+      <h1>困ったときに、場所から情報へ</h1>
+      <p class="lead">発表用の最小構成プロトタイプです。地図上の施設をクリックすると、関連セクションが表示されます。</p>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="map-card" aria-labelledby="map-title">
+      <div class="card-head">
+        <h2 id="map-title">キャンパスマップ</h2>
+        <p>施設をクリック</p>
+      </div>
+
+      <div class="campus-map" aria-label="簡易キャンパスマップ">
+        <button class="spot spot-cafe active" data-target="cafeteria">食堂</button>
+        <button class="spot spot-library" data-target="library">図書館</button>
+        <button class="spot spot-building" data-target="building-a">講義棟A</button>
+        <button class="spot spot-gym" data-target="gym">体育館</button>
+        <button class="spot spot-office" data-target="office">学生課</button>
+      </div>
+    </section>
+
+    <section class="info-card" aria-labelledby="info-title">
+      <div class="card-head">
+        <h2 id="info-title">施設情報</h2>
+        <p>選択中の施設のセクションを表示</p>
+      </div>
+
+      <div class="sections">
+        <article id="cafeteria" class="info-section active">
+          <h3>食堂</h3>
+          <p class="placeholder">ここに食堂に関する案内を入れる</p>
+        </article>
+
+        <article id="library" class="info-section">
+          <h3>図書館</h3>
+          <p class="placeholder">ここに図書館に関する案内を入れる</p>
+        </article>
+
+        <article id="building-a" class="info-section">
+          <h3>講義棟A</h3>
+          <p class="placeholder">ここに講義棟Aに関する案内を入れる</p>
+        </article>
+
+        <article id="gym" class="info-section">
+          <h3>体育館</h3>
+          <p class="placeholder">ここに体育館に関する案内を入れる</p>
+        </article>
+
+        <article id="office" class="info-section">
+          <h3>学生課</h3>
+          <p class="placeholder">ここに学生課に関する案内を入れる</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
